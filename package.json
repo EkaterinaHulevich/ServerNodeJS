@@ -1,0 +1,19 @@
+{
+  "name": "servernodejs",
+  "version": "1.0.0",
+  "description": "Task2ServerNodeJS",
+  "main": "serverNodeJS.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EkaterinaHulevich/ServerNodeJS.git"
+  },
+  "author": "Ekaterina Hulevich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EkaterinaHulevich/ServerNodeJS/issues"
+  },
+  "homepage": "https://github.com/EkaterinaHulevich/ServerNodeJS#readme"
+}
