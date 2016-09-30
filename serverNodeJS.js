@@ -12,7 +12,6 @@ sendFileSafe(url.parse(req.url).pathname, response);
 function sendFileSafe(filePath, response) {
 	filePath = path.normalize(path.join(ROOT, filePath)); 
 	fs.stat(filePath, function(err, stats) {
-		console.log(filePath);
 		if(err) {
 			response.statusCode = 404;
 			response.end("file error");
@@ -28,7 +27,6 @@ function sendFileSafe(filePath, response) {
       		'<button type="submit"> Open html file </button>'+
       		'</form>'+
       		'<a href="/html_folder/t2.html" download> Download html file <br></a>'+
-      		//'<a href="/html_folder/t2.html"> Open html file </a>'+
       		'</body>'+
       		'</html>';
       		response.write(body);
@@ -50,7 +48,6 @@ function sendFile(filePath, response) {
 	}
 });
 	stream.on('end', function() {
-		console.log("The end");
 		response.end();
 	});
 }
