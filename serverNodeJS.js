@@ -12,20 +12,27 @@ sendFileSafe(url.parse(req.url).pathname, response);
 function sendFileSafe(filePath, response) {
 	filePath = path.normalize(path.join(ROOT, filePath)); 
 	fs.stat(filePath, function(err, stats) {
-		if (err || !stats.isFile()) {
+		console.log(filePath);
+		if(err) {
+			response.statusCode = 404;
+			response.end("file error");
+			return;
+		}
+		if (!stats.isFile()) {
 			var body = '<html>'+
 			'<head>'+
       		'<meta charset="utf-8">'+
      		'</head>'+
       		'<body>'+
+      		'<form action="/html_folder/t2.html">'+
+      		'<button type="submit"> Open html file </button>'+
+      		'</form>'+
       		'<a href="/html_folder/t2.html" download> Download html file <br></a>'+
-      		'<a href="/html_folder/t2.html"> Open html file </a>'+
+      		//'<a href="/html_folder/t2.html"> Open html file </a>'+
       		'</body>'+
       		'</html>';
       		response.write(body);
-			//response.statusCode = 404;
-			//response.end("File not found");
-			//return;
+      		response.end();
 		} else {
 			sendFile(filePath, response);
 		}
